@@ -1,6 +1,4 @@
-from flask import Flask,request,render_template
-
-
+from flask import Flask, redirect,url_for,render_template,jsonify
 
 app = Flask(__name__)
 
@@ -21,12 +19,12 @@ def mathoperation():
         result = number1 * number2
     
     elif operation == "devision":
-        result = number1/number2
+        result = int(number1)/int(number2)
     
     else:
         result = number1 - number2
     
-    return result
+    return jsonify(result)
 
 
 if __name__ == '__main__':
